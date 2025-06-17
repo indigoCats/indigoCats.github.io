@@ -240,3 +240,295 @@ nav ul li a {
 a, button, [role="button"] {
     cursor: none;
 }
+
+
+
+/* Bu kodları homepage_style.css dosyanızın sonuna ekleyin */
+
+/* Responsive Design - Mobile First Approach */
+
+/* Tablet ve küçük ekranlar (768px ve altı) */
+@media (max-width: 768px) {
+    /* Header responsive */
+    header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 20px;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    /* Navigation responsive */
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    nav ul li {
+        margin: 5px 8px;
+    }
+    
+    nav ul li a {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+    
+    /* Section indicator responsive */
+    .section-indicator {
+        height: 40px;
+        font-size: 1.2rem;
+        padding-left: 20px;
+    }
+    
+    /* About section responsive */
+    #about {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    #about .text-content,
+    #about .image-content {
+        width: 100%;
+    }
+    
+    #about .text-content {
+        margin-bottom: 40px;
+    }
+    
+    #about h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    #about p {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: left;
+    }
+    
+    /* About2 section responsive */
+    #about2 {
+        flex-direction: column-reverse;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    #about2 .text-content,
+    #about2 .image-content {
+        width: 100%;
+    }
+    
+    #about2 .image-content {
+        margin-bottom: 40px;
+    }
+    
+    #about2 h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    #about2 p {
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: left;
+    }
+    
+    /* Projects section responsive */
+    #projects {
+        height: auto;
+        min-height: 100vh;
+        padding: 60px 20px;
+    }
+    
+    #projects h2 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+    
+    /* Contact section responsive */
+    #contact {
+        height: auto;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    #contact h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    #contact p {
+        font-size: 1rem;
+    }
+    
+    /* Footer responsive */
+    footer {
+        padding: 30px 20px;
+    }
+    
+    footer p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile phones (480px ve altı) */
+@media (max-width: 480px) {
+    /* Header mobile */
+    header {
+        padding: 10px;
+        gap: 15px;
+    }
+    
+    header h1 {
+        font-size: 1.3rem;
+    }
+    
+    /* Navigation mobile */
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    nav ul li {
+        margin: 3px 0;
+    }
+    
+    nav ul li a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        display: block;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+    
+    nav ul li a:hover {
+        background-color: rgba(33, 161, 241, 0.1);
+    }
+    
+    /* Section indicator mobile */
+    .section-indicator {
+        height: 35px;
+        font-size: 1rem;
+        padding-left: 15px;
+    }
+    
+    /* About sections mobile */
+    #about,
+    #about2 {
+        padding: 30px 15px;
+    }
+    
+    #about h2,
+    #about2 h2 {
+        font-size: 1.5rem;
+    }
+    
+    #about p {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    
+    #about2 p {
+        font-size: 15px;
+        margin-top: 15px;
+    }
+    
+    /* Images mobile */
+    #about .image-content img,
+    #about2 .image-content img {
+        max-width: 90%;
+        height: auto;
+    }
+    
+    /* Projects mobile */
+    #projects {
+        padding: 40px 15px;
+    }
+    
+    #projects h2 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+    
+    /* Contact mobile */
+    #contact {
+        padding: 30px 15px;
+    }
+    
+    #contact h2 {
+        font-size: 1.5rem;
+    }
+    
+    #contact p {
+        font-size: 0.9rem;
+    }
+    
+    #contact a {
+        word-break: break-word;
+    }
+    
+    /* Footer mobile */
+    footer {
+        padding: 20px 15px;
+    }
+}
+
+/* Extra small screens (360px ve altı) */
+@media (max-width: 360px) {
+    header h1 {
+        font-size: 1.1rem;
+    }
+    
+    nav ul li a {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    
+    #about h2,
+    #about2 h2 {
+        font-size: 1.3rem;
+    }
+    
+    #about p,
+    #about2 p {
+        font-size: 13px;
+    }
+    
+    #projects h2 {
+        font-size: 1.7rem;
+    }
+    
+    .section-indicator {
+        font-size: 0.9rem;
+        padding-left: 10px;
+    }
+}
+
+/* Landscape mode için tablet optimizasyonu */
+@media (max-width: 1024px) and (orientation: landscape) {
+    #about,
+    #about2 {
+        flex-direction: row;
+        min-height: 100vh;
+        align-items: center;
+    }
+    
+    #about .text-content,
+    #about .image-content,
+    #about2 .text-content,
+    #about2 .image-content {
+        width: 50%;
+    }
+    
+    #about p,
+    #about2 p {
+        font-size: 16px;
+    }
+}
