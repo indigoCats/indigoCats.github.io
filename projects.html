@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakında - Indigo Cats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated background grid */
+        .grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100px 100px;
+            animation: gridMove 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
+        }
+
+        /* Floating orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.1;
+            z-index: 2;
+        }
+
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            background: #ffffff;
+            top: 20%;
+            left: 10%;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .orb2 {
+            width: 200px;
+            height: 200px;
+            background: #666666;
+            bottom: 30%;
+            right: 15%;
+            animation: float 12s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 30px) scale(0.9); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 80px 40px;
+        }
+
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: fadeInScale 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+            filter: drop-shadow(0 10px 20px rgba(255,255,255,0.1));
+        }
+
+        .title {
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-weight: 100;
+            letter-spacing: -0.05em;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInScale 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+            background: linear-gradient(135deg, #ffffff 0%, #555555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 0.6;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            font-weight: 100;
+            color: #666666;
+            margin-bottom: 120px;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            animation: fadeInScale 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.9s forwards;
+            /* text-transform: uppercase; */
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 20px 40px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 200;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            animation: fadeInScale 1.2s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .back-button:hover::before {
+            left: 100%;
+        }
+
+        .back-button:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Bold animations */
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: translateY(60px) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 60px 30px;
+            }
+            
+            .logo {
+                font-size: 3rem;
+                margin-bottom: 60px;
+            }
+            
+            .subtitle {
+                margin-bottom: 80px;
+                font-size: 1.3rem;
+            }
+            
+            .back-button {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px 20px;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+            }
+            
+            .subtitle {
+                margin-bottom: 60px;
+                font-size: 1.1rem;
+                letter-spacing: 0.05em;
+            }
+        }
+
+        /* Cursor interaction */
+        .container {
+            cursor: none;
+        }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor.hover {
+            transform: scale(2);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="cursor" id="cursor"></div>
+
+    <div class="container">
+       
+        <h1 class="title"><br> ÇOK <br>YA <br>KIN <br>DA <br> </h1>
+        
+        <p class="subtitle">Sizin için özenle hazırlıyoruz.</p>
+        
+        <a href="index.html" class="back-button">Geri Dön</a>
+    </div>
+
+    <script>
+        // Custom cursor
+        const cursor = document.getElementById('cursor');
+        const container = document.querySelector('.container');
+        const backButton = document.querySelector('.back-button');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
+
+        // Cursor hover effects
+        [backButton].forEach(element => {
+            if (element) {
+                element.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                });
+            }
+        });
+
+        // Parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            const orb1 = document.querySelector('.orb1');
+            const orb2 = document.querySelector('.orb2');
+            
+            orb1.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
+            orb2.style.transform = `translate(${mouseX * -15}px, ${mouseY * -15}px)`;
+        });
+
+        // Smooth page load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Add some randomness to orb movements
+        setInterval(() => {
+            const orb1 = document.querySelector('.orb1');
+            const orb2 = document.querySelector('.orb2');
+            
+            const randomX1 = (Math.random() - 0.5) * 100;
+            const randomY1 = (Math.random() - 0.5) * 100;
+            const randomX2 = (Math.random() - 0.5) * 80;
+            const randomY2 = (Math.random() - 0.5) * 80;
+            
+            orb1.style.transform += ` translate(${randomX1}px, ${randomY1}px)`;
+            orb2.style.transform += ` translate(${randomX2}px, ${randomY2}px)`;
+        }, 8000);
+    </script>
+</body>
+</html>
